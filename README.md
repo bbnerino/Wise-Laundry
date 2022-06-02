@@ -2,22 +2,19 @@
 
 ## 목차
 
-
 1. [서비스 소개](#서비스-소개)
 2. [기술 스택](#기술-스택)
 3. [메인 기능](#메인-기능)
 4. [추가 기능](#추가-기능)
 5. [팀원 소개](#팀원-소개)
 6. [최종 산출물](#최종-산출물)
+7. 코드 리팩토링
 
 ## 서비스 소개
-
-
 
 현재 국내 1인 가구 규모가 점점 증가하고 있으며 그에 따라 본인이 세탁하는 코인 빨래방의 시장 규모가 급격히 성장하고 있습니다. 하지만 **케어라벨**에 있는 **세탁 기호**를 인지하고 세탁 기호에 따라 세탁하는 것은 귀찮고 복잡합니다. 슬기로운세탁 서비스는 카메라를 통해 세탁기호를 인식하고 그에 맞는 세탁 방법을 추천하는 서비스입니다.
 
 ## 기술 스택
-
 
 ![Untitled](readme_images/Untitled.png)
 
@@ -35,13 +32,9 @@
 
 ### TF Object Detection Model
 
-Tensorflow로 구현된  object detection model을 라이브러리 형태로 제공하고, 머신러닝이나 텐서플로우에 대한 개념이 없더라도 라이브러리 형태로 손쉽게 사용할 수 있습니다.  각기 다른 정확도와 속도의 여러 모델을 가지고  있으며, 그 중 프로젝트에서 사용한 모델인 SSD  Mobilenet은 다양한 view를 활용하면서 통합된 network 구조를 가진 1-stage detector로서 높은 정확도와 빠른 속도라는 장점을 가지고 있습니다. 
-
-
-
+Tensorflow로 구현된 object detection model을 라이브러리 형태로 제공하고, 머신러닝이나 텐서플로우에 대한 개념이 없더라도 라이브러리 형태로 손쉽게 사용할 수 있습니다. 각기 다른 정확도와 속도의 여러 모델을 가지고 있으며, 그 중 프로젝트에서 사용한 모델인 SSD Mobilenet은 다양한 view를 활용하면서 통합된 network 구조를 가진 1-stage detector로서 높은 정확도와 빠른 속도라는 장점을 가지고 있습니다.
 
 ## 메인 기능
-
 
 ### 메인페이지
 
@@ -69,17 +62,15 @@ Tensorflow로 구현된  object detection model을 라이브러리 형태로 제
 
   세탁택 인식
 
-
 ### 옷 등록
 
-- 세탁 주의 사항은  ⚠을 통해 각 세탁 마크에 대한 정보를 확인할 수 있으며 필요한 세탁 마크는 `+` 버튼을 통해 추가할 수 있습니다.
+- 세탁 주의 사항은 ⚠을 통해 각 세탁 마크에 대한 정보를 확인할 수 있으며 필요한 세탁 마크는 `+` 버튼을 통해 추가할 수 있습니다.
 - 제품 설명 태그는 옷에 대한 정보를 추가하여 다른 사용자에게 정보를 공유할 수 있습니다.
 - 메모를 통해 이외에 추가하고 싶은 설명, 내용을 작성하여 옷에 대한 설명을 추가할 수 있습니다.
 
   ![옷 등록](readme_images/okay_laundry.gif)
 
   옷 등록
-
 
 - 남의옷장에서 검색하기 ⇒ 내 옷장에서 수정하기
 
@@ -98,12 +89,11 @@ Tensorflow로 구현된  object detection model을 라이브러리 형태로 제
 **나만의 옷장**
 
 - 나만의 옷장 페이지에서는 세탁 마크를 쉽게 알 수 있도록 이미지와 세탁 마크를 나타내었습니다.
-- 클릭을 통해 옷의 세부 정보인  세탁 주의 사항, 제품 설명 태그, 메모와 이미지를 확인할 수 있습니다.
+- 클릭을 통해 옷의 세부 정보인 세탁 주의 사항, 제품 설명 태그, 메모와 이미지를 확인할 수 있습니다.
 - 수정하기 버튼을 통해 세부 정보들을 수정할 수 있습니다.
 - 삭제하기 버튼을 통해 옷 정보를 삭제할 수 있습니다.
 
   ![내꺼.gif](readme_images/%EB%82%B4%EA%BA%BC.gif)
-
 
 ### Community
 
@@ -130,16 +120,14 @@ Tensorflow로 구현된  object detection model을 라이브러리 형태로 제
 
   ![에딧.gif](readme_images/%EC%97%90%EB%94%A7.gif)
 
-
 ## 추가 기능
-
 
 ### 세탁 지수
 
 - 날씨, 온도, 강수 확률, 습도, 바람 등을 분석하여 빨래 지수를 알려주는 페이지 입니다.
 - 현재 위치에서 2시간 간격으로 총 4개 시각의 빨래 지수를 알 수 있고, 클릭 시 상단에서 해당 시각의 정보를 볼 수 있습니다.
-- 현재 위치를 x,y 축으로 계산해 서버로 보내고, 서버에서 기상청으로 부터 날씨를 받아와 바람지수 , 비올 확률, 습도,  온도 등으로 계산을 해서 다시 돌려주는 시간동안 여러 데이터의 그래프를 보여주며 이용자의 기다리는 시간을 즐겁게 해줍니다.
-- 현재 날씨가 어떤지 직관적으로 보여지게 네가지의 날씨 종류(맑음,비,흐림,조금흐림) 를  애니메이션으로 만들었습니다.
+- 현재 위치를 x,y 축으로 계산해 서버로 보내고, 서버에서 기상청으로 부터 날씨를 받아와 바람지수 , 비올 확률, 습도, 온도 등으로 계산을 해서 다시 돌려주는 시간동안 여러 데이터의 그래프를 보여주며 이용자의 기다리는 시간을 즐겁게 해줍니다.
+- 현재 날씨가 어떤지 직관적으로 보여지게 네가지의 날씨 종류(맑음,비,흐림,조금흐림) 를 애니메이션으로 만들었습니다.
 - 또한 다크모드를 사용해 저녁의 느낌을 표현했습니다.
 
 ![빨래지수 로딩창 및 시작화면  ](readme_images/%EC%9B%A8%EB%8D%94_%EA%B8%B0%EB%B3%B8.gif)
@@ -187,23 +175,23 @@ Tensorflow로 구현된  object detection model을 라이브러리 형태로 제
 ## 팀원 소개
 
 - 장하석
-    - **백엔드 개발**
-    - ❤  **git** :  [https://github.com/Hasky96](https://github.com/Hasky96)
+  - **백엔드 개발**
+  - ❤ **git** : [https://github.com/Hasky96](https://github.com/Hasky96)
 - 진은정
-    - **백엔드 개발**
-    - 💜 **git :** [https://github.com/NOO00OON](https://github.com/NOO00OON)
+  - **백엔드 개발**
+  - 💜 **git :** [https://github.com/NOO00OON](https://github.com/NOO00OON)
 - 박성은
-    - **백엔드 개발**
-    - 💙 **git :** [https://github.com/qkrtjddms27](https://github.com/qkrtjddms27)
+  - **백엔드 개발**
+  - 💙 **git :** [https://github.com/qkrtjddms27](https://github.com/qkrtjddms27)
 - 이혜진
-    - **프론트 엔드 React 개발**
-    - 🧡 **git :** [https://github.com/hy2jin](https://github.com/hy2jin)
+  - **프론트 엔드 React 개발**
+  - 🧡 **git :** [https://github.com/hy2jin](https://github.com/hy2jin)
 - 문슬기
-    - **프론트 엔드 React 개발**
-    - 💛 **git :** [https://github.com/seulgi-mun](https://github.com/seulgi-mun)
+  - **프론트 엔드 React 개발**
+  - 💛 **git :** [https://github.com/seulgi-mun](https://github.com/seulgi-mun)
 - 임현홍
-    - **프론트 엔드 React 개발**
-    - 💚 **git :** [https://github.com/bbnerino](https://github.com/bbnerino)
+  - **프론트 엔드 React 개발**
+  - 💚 **git :** [https://github.com/bbnerino](https://github.com/bbnerino)
 
 ---
 
